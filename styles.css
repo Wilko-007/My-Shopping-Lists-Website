@@ -117,3 +117,15 @@ img{max-width:100%}
 @media(max-width:650px){.aussie-badge{font-size:.76rem;padding:9px 13px}}
 
 .footer-links{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}.footer-links a{text-decoration:none}.footer-links a:hover{text-decoration:underline}
+
+
+/* Consent choices: optional Google Analytics does not load until accepted. */
+#analytics-consent{position:fixed;bottom:16px;left:16px;right:16px;z-index:1000;max-width:990px;margin:auto;background:#fff;color:#163528;border:1px solid #c7e5d2;box-shadow:0 14px 60px #153d2f33;border-radius:20px;padding:19px 23px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+#analytics-consent strong{font-size:1.05rem}
+#analytics-consent p{font-size:.88rem;line-height:1.45;margin:4px 0 0;max-width:640px}
+#analytics-consent a{color:#08734a}
+.analytics-buttons{display:flex;gap:10px;flex-shrink:0}
+.analytics-buttons button,#analytics-preferences{border-radius:12px;padding:10px 15px;font-size:.88rem;font-weight:750;cursor:pointer;border:1px solid #0d8050;background:#fff;color:#0d6844}
+.analytics-buttons #analytics-accept{background:#0d8050;color:white}
+#analytics-preferences{margin-top:6px}
+@media(max-width:650px){#analytics-consent{flex-direction:column;align-items:stretch;padding:16px}.analytics-buttons{justify-content:flex-end;flex-wrap:wrap}}
