@@ -50,7 +50,7 @@
     document.querySelectorAll('a[href*="play.google.com/store/apps/details"]').forEach(function (link) {
       link.addEventListener('click', function () {
         if (getChoice() === 'accepted' && typeof window.gtag === 'function') {
-          window.gtag('event', 'google_play_click', { link_url: link.href, transport_type: 'beacon' });
+          window.gtag('event', 'play_store_click', { link_url: link.href, transport_type: 'beacon' });
         }
       });
     });
