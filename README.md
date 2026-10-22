@@ -1,7 +1,9 @@
-echo "# My-Shopping-Lists-Website" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Wilko-007/My-Shopping-Lists-Website.git
-git push -u origin main
+# My Shopping Lists
+
+Official website for My Shopping Lists.
+
+Website: https://myshoppinglistsapp.com
+
+Website hosting: Porkbun Static Hosting
+
+Developed and maintained with assistance from ChatGPT.
