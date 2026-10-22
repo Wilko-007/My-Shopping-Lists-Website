@@ -96,3 +96,16 @@ img{max-width:100%}
 .audience-closing{text-align:center;color:#205940;font-size:1.07rem;margin:33px 0 0}
 @media(max-width:930px){.audience-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.audience-section{padding:67px 0}.audience-grid{grid-template-columns:1fr;gap:14px}.audience-card{padding:25px}}
+
+
+/* The story behind My Shopping Lists */
+.founder-section{padding:94px 0;background:linear-gradient(130deg,#e3fff0 0%,#e9f5ff 55%,#fff0ca 100%)}
+.founder-layout{display:grid;grid-template-columns:.83fr 1.17fr;gap:75px;align-items:center}
+.founder-visual{min-height:360px;border-radius:40px;background:radial-gradient(circle at 45% 45%,#ecfff4 0%,#8ce2ac 65%,#5fca94 100%);position:relative;display:grid;place-items:center;overflow:hidden;box-shadow:0 22px 45px rgba(19,103,65,.16)}
+.founder-big-icon{font-size:clamp(6rem,13vw,11rem);filter:drop-shadow(0 14px 20px rgba(18,83,59,.16))}
+.founder-sticker{position:absolute;background:white;padding:10px 16px;border-radius:18px;box-shadow:0 10px 22px rgba(18,83,59,.14);font-weight:850;font-size:.9rem;color:#18583c}
+.sticker-one{left:5%;top:13%;transform:rotate(-9deg)}.sticker-two{right:5%;top:24%;transform:rotate(9deg)}.sticker-three{left:13%;bottom:12%;transform:rotate(6deg)}
+.founder-copy h2{font-size:clamp(2.2rem,4vw,3.65rem);line-height:1.1;letter-spacing:-.055em;margin:0 0 22px;color:#083a2d;font-weight:900}.founder-copy h2 span{color:#119563}
+.founder-copy p:not(.eyebrow){font-size:1.03rem;color:#3b574a;max-width:650px}.founder-copy .founder-signoff{font-weight:800;color:#116e47!important;margin-top:25px}
+@media(max-width:930px){.founder-layout{gap:30px}.founder-visual{min-height:310px}}
+@media(max-width:650px){.founder-section{padding:65px 0}.founder-layout{grid-template-columns:1fr;gap:35px}.founder-visual{min-height:260px}.founder-big-icon{font-size:7rem}}
