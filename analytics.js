@@ -16,16 +16,24 @@
   function saveChoice(value) {
     try { localStorage.setItem(key, value); } catch (_) {}
   }
+  // Metricool's official be.js tracker, loaded only after analytics consent.
   function enableMetricool() {
-    if (window.__mslMetricoolLoaded) return;
+    if (window.__mslMetricoolLoaded || getChoice() !== 'accepted') return;
     window.__mslMetricoolLoaded = true;
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://tracker.metricool.com/resources/be.js';
-    script.onload = function () {
-      if (getChoice() === 'accepted' && window.beTracker && typeof window.beTracker.t === 'function') {
+    function startTracking() {
+      if (getChoice() === 'accepted' &&
+          window.beTracker && typeof window.beTracker.t === 'function') {
         window.beTracker.t({ hash: '5b314e2c47695d33e79e4903c0640631' });
       }
+    }
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'https://tracker.metricool.com/resources/be.js';
+    script.onload = startTracking;
+    script.onerror = function () {
+      window.__mslMetricoolLoaded = false;
+      console.warn('Metricool tracker could not load.');
     };
     document.head.appendChild(script);
   }
