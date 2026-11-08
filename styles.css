@@ -154,17 +154,6 @@ img{max-width:100%}
   width: 100%;
   height: auto;
 }
-.lifestyle-screen {
-  position: absolute;
-  object-fit: fill;
-  border-radius: 11% / 5%;
-}
-.lifestyle-store .lifestyle-screen {
-  left: 61.55%;
-  top: 45.6%;
-  width: 13.85%;
-  height: 22%;
-}
 .lifestyle-card figcaption {
   padding: 14px 16px;
   color: #205940;
