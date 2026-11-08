@@ -129,3 +129,58 @@ img{max-width:100%}
 .analytics-buttons #analytics-accept{background:#0d8050;color:white}
 #analytics-preferences{margin-top:6px}
 @media(max-width:650px){#analytics-consent{flex-direction:column;align-items:stretch;padding:16px}.analytics-buttons{justify-content:flex-end;flex-wrap:wrap}}
+
+/* Lifestyle scenes in the app preview */
+.lifestyle-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+.lifestyle-card {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 15px 32px rgba(22, 88, 55, .12);
+}
+.lifestyle-photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+}
+.lifestyle-scene {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.lifestyle-screen {
+  position: absolute;
+  object-fit: fill;
+  border-radius: 11% / 5%;
+}
+.lifestyle-store .lifestyle-screen {
+  left: 61.55%;
+  top: 45.6%;
+  width: 13.85%;
+  height: 22%;
+}
+.lifestyle-home .lifestyle-screen {
+  left: 56%;
+  top: 39.5%;
+  width: 17.55%;
+  height: 28.55%;
+  transform: rotate(-1.4deg);
+}
+.lifestyle-card figcaption {
+  padding: 14px 16px;
+  color: #205940;
+  text-align: center;
+  font-weight: 750;
+}
+@media (max-width: 540px) {
+  .lifestyle-gallery {
+    grid-template-columns: 1fr;
+    max-width: 390px;
+  }
+}
