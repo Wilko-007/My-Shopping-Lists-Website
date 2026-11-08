@@ -165,13 +165,6 @@ img{max-width:100%}
   width: 13.85%;
   height: 22%;
 }
-.lifestyle-home .lifestyle-screen {
-  left: 56%;
-  top: 39.5%;
-  width: 17.55%;
-  height: 28.55%;
-  transform: rotate(-1.4deg);
-}
 .lifestyle-card figcaption {
   padding: 14px 16px;
   color: #205940;
