@@ -184,3 +184,39 @@ img{max-width:100%}
     max-width: 390px;
   }
 }
+
+/* Homepage shopping story */
+.hero {
+  background: radial-gradient(ellipse at 86% 42%, #ffedb8, transparent 58%),
+    linear-gradient(115deg, #e3faec, #f9fff7 65%);
+}
+.hero::before, .hero::after { content: none; }
+.hero-layout { gap: clamp(30px, 6vw, 88px); padding-block: 52px; }
+.hero h1 { font-size: clamp(3.1rem, 6.4vw, 6rem); }
+.hero h1 em { color: #08764b; }
+.hero-copy .eyebrow { color: #246a4b; }
+.hero-photo, .sharing-photo { width: min(100%, 390px); justify-self: center; }
+.hero-photo .lifestyle-photo { background: #c4dac1; }
+.sharing-photo .lifestyle-photo { background: #e8d5b8; }
+.hero-photo figcaption, .sharing-photo figcaption { text-align: left; padding-inline: 20px; }
+.shopping-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.shopping-steps li { padding: 25px; border: 1px solid #d7e8dc; border-radius: 22px; background: #fff; }
+.step-number { display: inline-block; padding: 4px 10px; border-radius: 100px; background: #dcf5e6; color: #145537; font-weight: 800; }
+.shopping-steps h3 { margin: 12px 0 6px; color: var(--forest); line-height: 1.25; }
+.shopping-steps p { margin: 0; color: var(--muted); }
+.shopping-steps a { display: inline-block; margin-top: 12px; }
+#release-225 .update-notice { border-radius: 14px; margin-bottom: 28px; }
+main [id] { scroll-margin-top: 95px; }
+@media (max-width: 650px) {
+  .hero-layout { padding-block: 40px 30px; }
+  .hero h1 { font-size: clamp(2.8rem, 11vw, 4.25rem); }
+  .hero-facts { margin-top: 23px; }
+  .shopping-steps { grid-template-columns: 1fr; }
+}
