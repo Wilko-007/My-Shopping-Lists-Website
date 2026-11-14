@@ -224,3 +224,9 @@ main [id] { scroll-margin-top: 95px; }
 .social-icon{width:26px;height:26px;flex:0 0 26px}
 .social-links a:hover .social-address{text-decoration:underline}
 .social-links a:focus-visible{outline:2px solid #b5ffbf;outline-offset:5px;border-radius:2px}
+
+/* Full promotional banner, preserved without cropping. */
+.app-banner-section{padding-top:40px}
+.app-banner-section a{display:block;border-radius:20px;overflow:hidden;box-shadow:0 14px 30px rgba(19,59,36,.14)}
+.app-banner-section img{display:block;width:100%;height:auto}
+.app-banner-section a:focus-visible{outline:3px solid #14995f;outline-offset:5px}
