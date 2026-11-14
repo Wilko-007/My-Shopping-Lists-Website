@@ -16,21 +16,50 @@
   function saveChoice(value) {
     try { localStorage.setItem(key, value); } catch (_) {}
   }
-  // Metricool's official be.js tracker, loaded only after analytics consent.
+  // Metricool is optional and only runs after explicit analytics consent.
+  // Retry temporary network/script failures, but never retry without consent.
+  var metricoolAttempts = 0;
+  var metricoolRetryTimer = null;
+  var maxMetricoolAttempts = 3;
+  function scheduleMetricoolRetry() {
+    if (getChoice() !== 'accepted' || window.__mslMetricoolLoaded ||
+        metricoolAttempts >= maxMetricoolAttempts || metricoolRetryTimer) return;
+    var delay = Math.min(30000, 2000 * Math.pow(2, metricoolAttempts - 1));
+    metricoolRetryTimer = setTimeout(function () {
+      metricoolRetryTimer = null;
+      enableMetricool();
+    }, delay);
+  }
   function enableMetricool() {
-    if (window.__mslMetricoolLoaded || window.__mslMetricoolLoading || getChoice() !== 'accepted') return;
+    if (getChoice() !== 'accepted' || window.__mslMetricoolLoaded ||
+        window.__mslMetricoolLoading || metricoolAttempts >= maxMetricoolAttempts) return;
     window.__mslMetricoolLoading = true;
+    metricoolAttempts++;
+    function fail(message, error) {
+      window.__mslMetricoolLoading = false;
+      console.warn(message, error || '');
+      scheduleMetricoolRetry();
+    }
     function startTracking() {
-      if (getChoice() === 'accepted' &&
-          window.beTracker && typeof window.beTracker.t === 'function') {
+      if (getChoice() !== 'accepted') {
+        window.__mslMetricoolLoading = false;
+        return;
+      }
+      if (window.beTracker && typeof window.beTracker.t === 'function') {
         try {
           window.beTracker.t({ hash: '5b314e2c47695d33e79e4903c0640631' });
           window.__mslMetricoolLoaded = true;
+          window.__mslMetricoolLoading = false;
         } catch (error) {
-          console.warn('Metricool tracker initialization failed.', error);
+          fail('Metricool tracker initialization failed.', error);
         }
+      } else {
+        fail('Metricool tracker unavailable after script load.');
       }
-      window.__mslMetricoolLoading = false;
+    }
+    if (window.beTracker && typeof window.beTracker.t === 'function') {
+      startTracking();
+      return;
     }
     var script = document.createElement('script');
     script.type = 'text/javascript';
@@ -38,16 +67,15 @@
     script.src = 'https://tracker.metricool.com/resources/be.js';
     script.onload = startTracking;
     script.onerror = function () {
-      window.__mslMetricoolLoading = false;
-      window.__mslMetricoolLoaded = false;
-      console.warn('Metricool tracker could not load.');
+      script.remove();
+      fail('Metricool tracker could not load.');
     };
     document.head.appendChild(script);
   }
   function enableAnalytics() {
+    enableMetricool();
     if (window.__mslAnalyticsLoaded) return;
     window.__mslAnalyticsLoaded = true;
-    enableMetricool();
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
@@ -60,6 +88,10 @@
   function setChoice(value) {
     saveChoice(value);
     if (value === 'accepted') enableAnalytics();
+    if (value === 'rejected' && metricoolRetryTimer) {
+      clearTimeout(metricoolRetryTimer);
+      metricoolRetryTimer = null;
+    }
     if (value === 'rejected' && window.__mslAnalyticsLoaded) {
       window.location.reload(); // stop tracking already loaded during this page visit
       return;
