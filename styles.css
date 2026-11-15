@@ -244,3 +244,11 @@ main [id] { scroll-margin-top: 95px; }
 #guides h2 span{color:#c62828}
 #guides .feature.xmas{background:linear-gradient(135deg,#fff1ef 0%,#ffe1dc 100%);border:2px solid #f4b4ab}
 #guides .feature.xmas .text-link{color:#b71c1c}
+
+/* iPhone coming soon badge (not a link) */
+.button-soon{background:#fff;color:#0b4f35;border:2px dashed rgba(9,114,70,.45);box-shadow:none;cursor:default}
+.button-soon:hover{transform:none;box-shadow:none}
+.button-soon .soon-icon{width:28px;height:28px;flex:none}
+.button-soon small{color:#268e61}
+.button-soon-light{background:rgba(255,255,255,.75);border-color:rgba(13,64,45,.4)}
+.download-buttons{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
