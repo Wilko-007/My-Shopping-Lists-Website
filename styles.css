@@ -233,3 +233,14 @@ main [id] { scroll-margin-top: 95px; }
 
 /* Six app screens: three per row on wider screens */
 @media(min-width:651px){.phone-strip{grid-template-columns:repeat(3,minmax(0,1fr));max-width:860px;margin-inline:auto}}
+
+/* Hero selling points: higher contrast pills */
+.hero-facts{gap:10px;font-size:.92rem}
+.hero-facts span{background:#fff;color:#0b4f35;border:1px solid rgba(9,114,70,.22);border-radius:999px;padding:7px 14px;box-shadow:0 4px 12px rgba(26,103,64,.08)}
+@media(max-width:650px){.hero-facts{font-size:.84rem;gap:8px}.hero-facts span{padding:6px 12px}}
+
+/* Seasonal: Christmas guide card (remove after Christmas) */
+#guides .eyebrow{color:#c62828}
+#guides h2 span{color:#c62828}
+#guides .feature.xmas{background:linear-gradient(135deg,#fff1ef 0%,#ffe1dc 100%);border:2px solid #f4b4ab}
+#guides .feature.xmas .text-link{color:#b71c1c}
