@@ -230,3 +230,6 @@ main [id] { scroll-margin-top: 95px; }
 .app-banner-section a{display:block;border-radius:20px;overflow:hidden;box-shadow:0 14px 30px rgba(19,59,36,.14)}
 .app-banner-section img{display:block;width:100%;height:auto}
 .app-banner-section a:focus-visible{outline:3px solid #14995f;outline-offset:5px}
+
+/* Six app screens: three per row on wider screens */
+@media(min-width:651px){.phone-strip{grid-template-columns:repeat(3,minmax(0,1fr));max-width:860px;margin-inline:auto}}
