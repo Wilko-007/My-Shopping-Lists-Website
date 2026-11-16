@@ -220,7 +220,7 @@ main [id] { scroll-margin-top: 95px; }
 .social-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
 .social-list li{min-width:0}
 .social-links a{display:inline-flex;align-items:center;gap:12px;max-width:100%;min-height:44px;text-align:left;text-decoration:none;padding:6px 0}
-.social-address{min-width:0;overflow-wrap:anywhere;font-size:.8rem}
+.social-address{min-width:0;overflow-wrap:anywhere;font-size:.72rem}
 .social-icon{width:26px;height:26px;flex:0 0 26px}
 .social-links a:hover .social-address{text-decoration:underline}
 .social-links a:focus-visible{outline:2px solid #b5ffbf;outline-offset:5px;border-radius:2px}
