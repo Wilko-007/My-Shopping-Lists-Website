@@ -252,3 +252,53 @@ main [id] { scroll-margin-top: 95px; }
 .button-soon small{color:#268e61}
 .button-soon-light{background:rgba(255,255,255,.75);border-color:rgba(13,64,45,.4)}
 .download-buttons{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center}
+
+.home-nav .nav-links {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px clamp(10px, 1.35vw, 22px);
+}
+.home-nav-actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 14px;
+}
+.home-nav-actions .button {
+  white-space: nowrap;
+}
+.publisher-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--forest);
+  font-size: .85rem;
+  font-weight: 800;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.publisher-brand img {
+  display: block;
+  border-radius: 8px;
+}
+@media (max-width: 650px) {
+  .home-nav {
+    gap: 10px;
+  }
+  .home-nav-actions {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 5px;
+    padding-block: 6px;
+  }
+  .home-nav-actions .button {
+    padding-block: 4px;
+  }
+  .publisher-brand {
+    font-size: .75rem;
+  }
+  .publisher-brand img {
+    width: 28px;
+    height: 28px;
+  }
+}
